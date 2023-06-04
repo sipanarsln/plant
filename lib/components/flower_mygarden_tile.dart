@@ -1,12 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:plant_appv2/constants/constants_color.dart';
-import 'package:plant_appv2/pages/details/details_screen.dart';
-
 import '../models/flower.dart';
 import '../models/flower_shop.dart';
+import '../service/notificationmanager.dart';
 
 class FlowerMyGardenTile extends StatefulWidget {
   final Flower flower;
@@ -22,9 +20,59 @@ class FlowerMyGardenTile extends StatefulWidget {
   State<FlowerMyGardenTile> createState() => _FlowerMyGardenTileState();
 }
 
-class _FlowerMyGardenTileState extends State<FlowerMyGardenTile> {
+class _FlowerMyGardenTileState extends State<FlowerMyGardenTile>
+    with TickerProviderStateMixin {
   void removeFromCart(Flower flower) {
     Provider.of<FlowerShop>(context, listen: false).removeItemFromCart(flower);
+  }
+
+  final NotificationManager notificationManager = NotificationManager();
+
+  final TextEditingController textFieldController = TextEditingController();
+
+  late AnimationController controller;
+
+  bool isPlaying = false;
+
+  int count = 0;
+
+  int? countPut;
+
+  String? valueText;
+
+  String get countText {
+    Duration count = controller.duration! * controller.value;
+    return "${count.inHours}:${(count.inMinutes % 60).toString().padLeft(2, "0")}:${(count.inSeconds % 60).toString().padLeft(2, "0")}";
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(days: count),
+    )..addStatusListener((status) {
+        if (status == AnimationStatus.dismissed && controller.value == 0.0) {
+          notificationManager.simpleNotificationShow();
+        }
+      });
+
+    notificationManager.initNotification(); // Bildirim yöneticisini başlat
+  }
+
+  @override
+  void dispose() {
+    controller.dispose(); // AnimationController'ın Ticker'ını dispose edin
+    notificationManager.dispose(); // Bildirim yöneticisini kapatın
+    super.dispose();
+  }
+
+  void geriSar() {
+    controller.reset();
+    controller.reverse(from: controller.value == 0.0 ? 1.0 : controller.value);
+    setState(() {
+      isPlaying = false;
+    });
   }
 
   @override
@@ -75,40 +123,39 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile> {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) => AlertDialog(
-                              insetPadding: EdgeInsets.zero,
-                              contentPadding: EdgeInsets.zero,
-                              title: const Text("Sulama Aralığı"),
-                              backgroundColor: Colors.amber,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              content: Container(
-                                height: 100,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(Icons.remove)),
-                                        const Text("data"),
-                                        IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(Icons.add)),
-                                      ],
-                                    ),
-                                    Container(
-                                        alignment: Alignment.bottomRight,
-                                        child: const Icon(
-                                          Icons.abc,
-                                        ))
-                                  ],
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text(
+                                    "Çiçeğinizi sulamak istediğiniz gün sayısını yazınız"),
+                                content: TextField(
+                                  onChanged: (value) {
+                                    valueText = value;
+                                  },
+                                  controller: textFieldController,
+                                  decoration: InputDecoration(
+                                      hintText: "Kaç günde bir ?"),
                                 ),
-                              ),
-                            ),
+                                actions: [
+                                  MaterialButton(
+                                    child: Text("Tamam"),
+                                    onPressed: () {
+                                      setState(() {
+                                        count = int.tryParse(
+                                                textFieldController.text) ??
+                                            0;
+                                        controller.duration =
+                                            Duration(days: count);
+                                        controller.reverse(
+                                          from: 1.0,
+                                        );
+                                        isPlaying = true;
+                                        Navigator.pop(context);
+                                      });
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
                           );
                         },
                         icon: const Icon(
@@ -119,7 +166,7 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile> {
                         alignment: Alignment.centerLeft,
                       ),
                       IconButton(
-                          onPressed: () {},
+                          onPressed: geriSar,
                           icon: const Icon(
                             Icons.water_drop_outlined,
                             size: 40,
@@ -127,15 +174,16 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile> {
                           ))
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
           IconButton(
-              onPressed: () {
-                removeFromCart(widget.flower);
-              },
-              icon: const Icon(Icons.close))
+            onPressed: () {
+              removeFromCart(widget.flower);
+            },
+            icon: const Icon(Icons.close),
+          ),
         ],
       ),
     );

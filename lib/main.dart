@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:plant_appv2/models/flower_shop.dart';
 import 'package:plant_appv2/pages/home_page.dart';
+import 'package:plant_appv2/service/notificationmanager.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationManager notificationManager = NotificationManager();
   runApp(const MyApp());
 }
 

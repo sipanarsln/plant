@@ -7,34 +7,71 @@ class FlowerShop extends ChangeNotifier {
         image: "assets/images/orkide.png",
         textName: "Orkide",
         description:
-            "Orkide nemi çok seven bir bitki türüdür. Özellikle yaz aylarında yapraklarına günde bir kez püskürtme su uygulaman hoşuna gider. Yeterince nem olmazsa çiçek kendini korumaya alarak çiçek açmaktan vazgeçebilir.",
-        light: "",
-        water: "",
-        temperature: ""),
+            "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        light: "xx Hour",
+        water: "xx Ml",
+        temperature: "xx °C"),
     Flower(
       image: "assets/images/sukulent.png",
       textName: "Sukulent",
       description:
-          "Sukulent bakımı kolay az su işteyen bir bitkidir. üşengeçler için birebir.",
-      light: "",
-      water: "",
-      temperature: "",
+          "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      light: "xx Hour",
+      water: "xx Ml",
+      temperature: "xx °C",
     ),
     Flower(
       image: "assets/images/zanzibar.png",
       textName: "Zanzibar",
-      description: "Bu bitkiye dair bir bilgi bulamadım.",
-      light: "",
-      water: "",
-      temperature: "",
+      description:
+          "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      light: "xx Hour",
+      water: "xx Ml",
+      temperature: "xx °C",
     ),
     Flower(
       image: "assets/images/licuala-orbicularis.png",
       textName: "Licuala Orbicularis",
-      description: "Umarım ismi kadar şaşalıdır.",
-      light: "",
-      water: "",
-      temperature: "",
+      description:
+          "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      light: "xx Hour",
+      water: "xx Ml",
+      temperature: "xx °C",
+    ),
+    Flower(
+        image: "assets/images/orkide.png",
+        textName: "Orkide",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        light: "xx Hour",
+        water: "xx Ml",
+        temperature: "xx °C"),
+    Flower(
+      image: "assets/images/sukulent.png",
+      textName: "Sukulent",
+      description:
+          "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      light: "xx Hour",
+      water: "xx Ml",
+      temperature: "xx °C",
+    ),
+    Flower(
+      image: "assets/images/zanzibar.png",
+      textName: "Zanzibar",
+      description:
+          "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      light: "xx Hour",
+      water: "xx Ml",
+      temperature: "xx °C",
+    ),
+    Flower(
+      image: "assets/images/licuala-orbicularis.png",
+      textName: "Licuala Orbicularis",
+      description:
+          "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      light: "xx Hour",
+      water: "xx Ml",
+      temperature: "xx °C",
     ),
   ];
 

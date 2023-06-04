@@ -9,4 +9,6 @@ class Flower {
     required this.textName,
     required this.description,
   });
+
+  void dispose() {}
 }
