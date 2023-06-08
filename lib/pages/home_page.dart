@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> _pages = [
-    const CartPage(),
     const FlowersPage(),
+    const CartPage(),
   ];
 
   @override

@@ -35,11 +35,11 @@ class MyBottomNavBar extends StatelessWidget {
           tabs: const [
             GButton(
               icon: Icons.home,
-              text: "Behçem",
+              text: "Çiçekler",
             ),
             GButton(
-              icon: Icons.home,
-              text: "Çiçekler",
+              icon: Icons.brightness_7,
+              text: "Behçem",
             ),
           ],
         ),
