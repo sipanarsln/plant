@@ -28,6 +28,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Consumer<FlowerShop>(
         builder: (context, value, child) => SingleChildScrollView(
               child: Column(
@@ -54,6 +55,21 @@ class _BodyState extends State<Body> {
                             ),
                             ElevatedButton(
                               onPressed: () {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text(
+                                    "Bahçeye eklendi.",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontFamily: "SansSerif",
+                                        fontSize: 20,
+                                        color: ColorItems().black),
+                                  ),
+                                  duration: const Duration(seconds: 2),
+                                  backgroundColor: ColorItems().lightLightGrey,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                ));
                                 addToCart(widget.flower);
 
                                 setState(
@@ -161,4 +177,15 @@ class _BodyState extends State<Body> {
               ),
             ));
   }
+}
+
+void _showToast(BuildContext context) {
+  final scaffold = ScaffoldMessenger.of(context);
+  scaffold.showSnackBar(
+    SnackBar(
+      content: Text("Bahçeye eklendi"),
+      action: SnackBarAction(
+          label: "UNDO", onPressed: scaffold.hideCurrentSnackBar),
+    ),
+  );
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:plant_appv2/components/bottom_nav_bar.dart';
-import 'package:plant_appv2/constants/constants_color.dart';
 import 'package:plant_appv2/pages/flowers_page.dart';
 
 import 'my_garden.dart';

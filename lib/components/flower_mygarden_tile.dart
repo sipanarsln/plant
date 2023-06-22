@@ -125,19 +125,19 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile>
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title: Text(
+                                title: const Text(
                                     "Çiçeğinizi sulamak istediğiniz gün sayısını yazınız"),
                                 content: TextField(
                                   onChanged: (value) {
                                     valueText = value;
                                   },
                                   controller: textFieldController,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                       hintText: "Kaç günde bir ?"),
                                 ),
                                 actions: [
                                   MaterialButton(
-                                    child: Text("Tamam"),
+                                    child: Text("Ayarla"),
                                     onPressed: () {
                                       setState(() {
                                         count = int.tryParse(

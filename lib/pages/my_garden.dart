@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plant_appv2/components/flower_tile.dart';
 import 'package:plant_appv2/models/flower_shop.dart';
 import 'package:provider/provider.dart';
 

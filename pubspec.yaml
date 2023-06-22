@@ -41,6 +41,7 @@ dependencies:
   flutter_local_notifications:
   timer_count_down: ^2.2.2
   font_awesome_flutter: ^10.4.0
+  fluttertoast: ^8.2.2
 
   
 

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // ignore: unused_local_variable
   NotificationManager notificationManager = NotificationManager();
   runApp(const MyApp());
 }

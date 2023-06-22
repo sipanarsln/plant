@@ -1,9 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
 import 'package:plant_appv2/pages/details/details_screen.dart';
 
-import '../constants/constants_color.dart';
 import '../models/flower.dart';
 
 // ignore: must_be_immutable
