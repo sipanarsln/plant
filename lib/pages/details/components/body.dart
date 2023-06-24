@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 import 'package:plant_appv2/models/flower_shop.dart';
 import 'package:plant_appv2/pages/details/components/%C4%B1s%C4%B1k.dart';
@@ -52,24 +53,28 @@ class _BodyState extends State<Body> {
                                 Navigator.pop(context);
                               },
                               icon: const Icon(Icons.arrow_back_ios_outlined),
+                              color: ColorItems().seaTurtleGreen,
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(SnackBar(
-                                  content: Text(
-                                    "Bahçeye eklendi.",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontFamily: "SansSerif",
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      "Bahçeye eklendi.",
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.bold,
+                                        color: ColorItems().black,
                                         fontSize: 20,
-                                        color: ColorItems().black),
+                                      ),
+                                    ),
+                                    duration: const Duration(seconds: 2),
+                                    backgroundColor: ColorItems().white,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(150)),
                                   ),
-                                  duration: const Duration(seconds: 2),
-                                  backgroundColor: ColorItems().lightLightGrey,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                ));
+                                );
                                 addToCart(widget.flower);
 
                                 setState(
@@ -79,12 +84,19 @@ class _BodyState extends State<Body> {
                                 );
                               },
                               style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20)))),
-                              child: const Text("ekle"),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
+                                backgroundColor: MaterialStatePropertyAll(
+                                    ColorItems().seaTurtleGreen),
+                              ),
+                              child: Text(
+                                "ekle",
+                                style: TextStyle(color: ColorItems().white),
+                              ),
                             ),
                           ],
                         ),
@@ -97,7 +109,7 @@ class _BodyState extends State<Body> {
                         height: 700,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: const Color(0xffebfdf2)),
+                            color: ColorItems().detailColor),
                       ),
                       Padding(
                         padding: context.onlyTopPaddingLow,
@@ -109,17 +121,17 @@ class _BodyState extends State<Body> {
                                     const EdgeInsets.symmetric(horizontal: 150),
                                 height: 5,
                                 width: size.width,
-                                color: ColorItems().lightLightGrey),
+                                color: ColorItems().seaTurtleGreen),
                             const SizedBox(height: 10),
                             Padding(
                               padding: context.onlyLeftPaddingLow,
                               child: Text(
                                 widget.flower.textName,
-                                style: TextStyle(
-                                    fontFamily: "SansSerif",
-                                    fontSize: 30,
-                                    color: ColorItems().black,
-                                    fontWeight: FontWeight.bold),
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorItems().black,
+                                  fontSize: 35,
+                                ),
                               ),
                             ),
                             const SizedBox(height: 20),
@@ -147,11 +159,10 @@ class _BodyState extends State<Body> {
                               padding: context.onlyLeftPaddingLow,
                               child: Text(
                                 "Hakkında",
-                                style: TextStyle(
-                                  fontFamily: "SansSerifLight",
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w400,
+                                  color: ColorItems().darkGrey,
                                   fontSize: 30,
-                                  color: ColorItems().black,
-                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -160,11 +171,10 @@ class _BodyState extends State<Body> {
                               padding: context.onlyLeftPaddingLow,
                               child: Text(
                                 widget.flower.description,
-                                style: TextStyle(
-                                  fontFamily: "SansSerifLight",
-                                  fontSize: 15,
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w300,
                                   color: ColorItems().darkGrey,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
                                 ),
                               ),
                             ),
@@ -177,15 +187,4 @@ class _BodyState extends State<Body> {
               ),
             ));
   }
-}
-
-void _showToast(BuildContext context) {
-  final scaffold = ScaffoldMessenger.of(context);
-  scaffold.showSnackBar(
-    SnackBar(
-      content: Text("Bahçeye eklendi"),
-      action: SnackBarAction(
-          label: "UNDO", onPressed: scaffold.hideCurrentSnackBar),
-    ),
-  );
 }

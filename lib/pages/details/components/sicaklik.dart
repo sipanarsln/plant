@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:kartal/kartal.dart';
 
@@ -34,20 +35,20 @@ class SicaklikCart extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               "Sıcaklık",
-              style: TextStyle(
-                  fontFamily: "SansSerifLight",
-                  fontSize: 17,
-                  color: ColorItems().darkGrey,
-                  fontWeight: FontWeight.bold),
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.normal,
+                color: ColorItems().darkGrey,
+                fontSize: 20,
+              ),
             ),
             const SizedBox(height: 5),
             Text(
               flower.temperature,
-              style: TextStyle(
-                  fontFamily: "SansSerif",
-                  fontSize: 17,
-                  color: ColorItems().black,
-                  fontWeight: FontWeight.bold),
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.bold,
+                color: ColorItems().black,
+                fontSize: 20,
+              ),
             )
           ],
         ),

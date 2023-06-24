@@ -25,13 +25,13 @@ class MyBottomNavBar extends StatelessWidget {
         ),
         child: GNav(
           mainAxisAlignment: MainAxisAlignment.center,
-          backgroundColor: const Color(0xff6B8A77),
+          backgroundColor: ColorItems().viridianGreen,
           tabBorderRadius: 50,
           gap: 4,
           onTabChange: (value) => onTabChange!(value),
           color: ColorItems().white,
-          activeColor: const Color(0xff3e441a),
-          tabBackgroundColor: const Color(0xffd7e7d1),
+          activeColor: ColorItems().activeColor,
+          tabBackgroundColor: ColorItems().tabBackgroundColor,
           tabs: const [
             GButton(
               icon: Icons.home,

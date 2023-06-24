@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../constants/constants_color.dart';
@@ -35,20 +36,20 @@ class IsikCart extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               "Işık",
-              style: TextStyle(
-                  fontFamily: "SansSerifLight",
-                  fontSize: 17,
-                  color: ColorItems().darkGrey,
-                  fontWeight: FontWeight.bold),
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.normal,
+                color: ColorItems().darkGrey,
+                fontSize: 20,
+              ),
             ),
             const SizedBox(height: 5),
             Text(
               flower.light,
-              style: TextStyle(
-                  fontFamily: "SansSerif",
-                  fontSize: 17,
-                  color: ColorItems().black,
-                  fontWeight: FontWeight.bold),
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.bold,
+                color: ColorItems().black,
+                fontSize: 20,
+              ),
             )
           ],
         ),

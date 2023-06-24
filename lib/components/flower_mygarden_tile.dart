@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:plant_appv2/constants/constants_color.dart';
 import '../models/flower.dart';
@@ -82,17 +83,19 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile>
       height: 130,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: ColorItems().white,
-        boxShadow: const [
+        color: ColorItems().greenFeta,
+        boxShadow: [
           BoxShadow(
-              color: Color(0xff6B8A77), offset: Offset(3, 3), blurRadius: 5),
+              color: ColorItems().viridianGreen,
+              offset: const Offset(3, 3),
+              blurRadius: 5),
         ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 90,
+            height: 130,
             width: 80,
             margin: const EdgeInsets.only(left: 10),
             decoration: BoxDecoration(
@@ -108,11 +111,11 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile>
               children: [
                 Text(
                   widget.flower.textName,
-                  style: TextStyle(
-                      fontFamily: "SansSerif",
-                      fontSize: 20,
-                      color: ColorItems().black,
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.bold,
+                    color: ColorItems().black,
+                    fontSize: 20,
+                  ),
                   textAlign: TextAlign.left,
                 ),
                 Padding(
@@ -125,19 +128,38 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile>
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title: const Text(
-                                    "Çiçeğinizi sulamak istediğiniz gün sayısını yazınız"),
+                                title: Text(
+                                  "Çiçeğinizi sulamak istediğiniz gün sayısını yazınız",
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorItems().black,
+                                    fontSize: 20,
+                                  ),
+                                ),
                                 content: TextField(
                                   onChanged: (value) {
                                     valueText = value;
                                   },
                                   controller: textFieldController,
-                                  decoration: const InputDecoration(
-                                      hintText: "Kaç günde bir ?"),
+                                  decoration: InputDecoration(
+                                    hintText: "Kaç günde bir ?",
+                                    hintStyle: GoogleFonts.inter(
+                                      fontWeight: FontWeight.normal,
+                                      color: ColorItems().darkGrey,
+                                      fontSize: 15,
+                                    ),
+                                  ),
                                 ),
                                 actions: [
                                   MaterialButton(
-                                    child: Text("Ayarla"),
+                                    child: Text(
+                                      "Ayarla",
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.bold,
+                                        color: ColorItems().black,
+                                        fontSize: 20,
+                                      ),
+                                    ),
                                     onPressed: () {
                                       setState(() {
                                         count = int.tryParse(
@@ -158,20 +180,18 @@ class _FlowerMyGardenTileState extends State<FlowerMyGardenTile>
                             },
                           );
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.alarm_add,
-                          color: Colors.red,
+                          color: ColorItems().red,
                           size: 40,
                         ),
                         alignment: Alignment.centerLeft,
                       ),
                       IconButton(
-                          onPressed: geriSar,
-                          icon: const Icon(
-                            Icons.water_drop_outlined,
-                            size: 40,
-                            color: Colors.blue,
-                          ))
+                        onPressed: geriSar,
+                        icon: Icon(Icons.water_drop_outlined,
+                            size: 40, color: ColorItems().blue),
+                      )
                     ],
                   ),
                 ),
